@@ -1,19 +1,19 @@
-import React from "react";
+import React from "react"
 
-import Joke from "./Components/Joke.js";
-import JokeData from "./Components/Data/JokeData.js"
+import SchoolProductData from "./Components/Data/SchoolProductData.js"
+import Product from "./Components/Product.js";
 
 const App = () => {
 
-  const jkItems = JokeData.map((jokeItem) => {
-    return (<Joke Joke={jokeItem}/>)
+  const mappedData = SchoolProductData.map((productR) => {
+    return ( <Product product={productR} /> )
   });
 
   return (
     <div>
-      {jkItems}
+      {mappedData}
     </div>
-  );
-};
+  )
+}
 
 export default App;
