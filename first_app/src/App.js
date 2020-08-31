@@ -6,13 +6,15 @@ import TodoItem from "./Components/TodoItem.js";
 // Main function
 const App = () => {
 
-    const firstItem = "Take out trash";
+    const firstItem = {
+        text: "First item."
+    }
 
     return (
         <html>
             <Header />
             <form>
-                <TodoItem text="Enter text."/>
+                <TodoItem tdItem={firstItem}/>
             </form>
         </html>
     )
