@@ -1,24 +1,20 @@
 import React from "react"
 
-function Header() {
 
-    const FirstName = "Jose";
-    const LastName = "Miralles";
-
-    const styles = {
+class Header extends React.Component{
+    FirstName = "Jose";
+    LastName = "Miralles";
+    styles = {
         color: "red",
         backgroundColor:"yellowgreen"
     }
-
-    return (
-
-        <header style={styles} className="navbar">
-            {`${FirstName} ${LastName}`}
-            <br/>
-            {new Date().toLocaleString()}
-        </header>
-
-    )
+    render(){
+        return(
+            <header style={this.styles} className="navbar">
+                {`${this.FirstName} ${this.LastName}`}
+            </header>
+        );
+    }
 }
 
 export default Header;
