@@ -1,20 +1,17 @@
 import React from "react";
 
 import Joke from "./Components/Joke.js";
+import JokeData from "./Components/Data/JokeData.js"
 
 const App = () => {
-  const Joke1 = {
-    question: "Knock knock",
-    punchLine: "huehuehue",
-  };
-  const Joke2 = {
-    question: "What did the dead man say?",
-  };
+
+  const jkItems = JokeData.map((jokeItem) => {
+    return (<Joke Joke={jokeItem}/>)
+  });
 
   return (
     <div>
-      <Joke Joke={Joke1} />
-      <Joke Joke={Joke2} />
+      {jkItems}
     </div>
   );
 };
