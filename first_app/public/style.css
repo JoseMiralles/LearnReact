@@ -13,3 +13,8 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.completed{
+    color: dimgray;
+    text-decoration-line: line-through;
+}

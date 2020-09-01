@@ -23,7 +23,9 @@ class TodoItem extends React.Component {
       name="item1"
       onChange={this.CheckboxOnChange}
       checked={this.state.completed} />
-      <label for="item1">{this.state.text}</label></span>;
+      <label className={this.state.completed ? "completed" : ""} for="item1">{this.state.text}</label>
+  {this.state.speederName ? <span><br/><label>{this.state.speederName}</label></span> : ""}
+      </span>;
 
     return (
       <span>
@@ -43,10 +45,16 @@ class TodoItem extends React.Component {
 
   //Lifecycle method, called after component is rendered.
   componentDidMount() {
-    // Mimic a slow API call
-    setTimeout(() => {
-      this.setState({ isLoading: false });
-    }, 1500);
+    // Fetch dummy starwars data, and update the state with the new data.
+    fetch("https://swapi.dev/api/vehicles/14/")
+    .then(Response => Response.json())
+    .then((data) => {
+      console.log(data);
+      this.setState({
+        isLoading: false,
+        speederName: data.name
+      });
+    });
   }
 
 }
