@@ -1,19 +1,29 @@
 import React from "react"
 
-import SchoolProductData from "./Components/Data/SchoolProductData.js"
-import Product from "./Components/Product.js";
+class App extends React.Component{
 
-const App = () => {
+    constructor(props){
+        super(props);
+        this.state = {
+            isLoggedIn: this.props.isLoggedIn
+        }
+        this.ButtonClicked = this.ButtonClicked.bind(this);
+    }
 
-  const mappedData = SchoolProductData.map((productR) => {
-    return ( <Product product={productR} /> )
-  });
+    render(){
+        return (
+        <span>
+            <h1>{this.state.isLoggedIn ? "You are logged in!" : "You need to log in!"}</h1>
+        <button onClick={this.ButtonClicked}>{this.state.isLoggedIn ? "Log out" : "Log in"}</button>
+        </span>
+        );
+    }
 
-  return (
-    <div>
-      {mappedData}
-    </div>
-  )
+    ButtonClicked(){
+        this.setState((prev) => {
+            return ({isLoggedIn: !prev.isLoggedIn})
+        });
+    }
 }
 
 export default App;
