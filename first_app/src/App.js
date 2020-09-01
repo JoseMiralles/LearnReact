@@ -7,8 +7,16 @@ import TodoData from "./Data/TodoData.js";
 
 
 class App extends React.Component{
+
+    constructor(){
+        super();
+        this.state = {
+            to_dos: TodoData
+        };
+    }
+
     render () {
-        const items = TodoData.map((item)=>{
+        const items = this.state.to_dos.map((item)=>{
             return <TodoItem key={item.id} tdItem = {item}/>
         });
         return(
@@ -20,6 +28,8 @@ class App extends React.Component{
             </html>
         );
     }
+
 }
+
 
 export default App;
